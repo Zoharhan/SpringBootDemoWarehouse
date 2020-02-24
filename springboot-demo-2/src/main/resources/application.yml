@@ -1,0 +1,37 @@
+spring:
+  datasource:
+#    基础配置
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/study_test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+#    指定数据库连接池
+    type: com.zaxxer.hikari.HikariDataSource
+#    Hikari 连接池配置 ------ 详细配置请访问：https://github.com/brettwooldridge/HikariCP
+    hikari:
+#      最小空闲连接数量
+      minimum-idle: 5
+#      空闲连接存活最大时间，默认600000（10分钟
+      idle-timeout: 600000
+#      连接池最大连接数，默认是10
+      maximum-pool-size: 10
+#      此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+#      此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+#      数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+
+
+
+
+mybatis:
+#  指定全局配置文件位置
+  config-location: classpath:mybatis/mybatis-config.xml
+#  指定sql映射文件位置
+#  mapper-locations: classpath:mybatis/mapper/*.xml
+#  开启驼峰命名法
+#  configuration:
+#    map-underscore-to-camel-case: true
