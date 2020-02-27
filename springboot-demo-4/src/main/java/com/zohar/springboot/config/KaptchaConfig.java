@@ -5,7 +5,9 @@ import com.google.code.kaptcha.util.Config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.security.SecureRandom;
 import java.util.Properties;
+import java.util.Random;
 
 @Component
 public class KaptchaConfig {
@@ -44,7 +46,6 @@ public class KaptchaConfig {
         properties.setProperty("kaptcha.session.key", "code");
         Config config = new Config(properties);
         dk.setConfig(config);
-
         return dk;
     }
 }
